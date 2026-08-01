@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sparkhauz — Cleaning, Precision-Engineered | Lagos</title>
+<meta name="description" content="Sparkhauz provides professional residential, commercial and fumigation cleaning services across Lagos. Get a free quote on WhatsApp today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#FBFDFC;
+    --paper:#F3F8F6;
+    --ink:#0F2420;
+    --ink-soft:#3E5650;
+    --teal:#0E9C8C;
+    --teal-dark:#0A6E62;
+    --spark:#DFFF3D;
+    --mist:#EAF3F1;
+    --line:rgba(15,36,32,0.14);
+    --line-soft:rgba(15,36,32,0.08);
+    --radius:2px;
+    --max:1180px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+    background:var(--white);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 32px;}
+  h1,h2,h3,h4{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    line-height:1.1;
+  }
+  .mono{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:14px 24px;
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;
+    font-size:15px;
+    border-radius:var(--radius);
+    border:1.5px solid transparent;
+    cursor:pointer;
+    transition:transform .18s ease, background .18s ease, border-color .18s ease;
+  }
+  .btn-primary{background:var(--ink);color:var(--spark);}
+  .btn-primary:hover{transform:translateY(-2px);background:var(--teal-dark);color:var(--white);}
+  .btn-outline{border-color:var(--ink);color:var(--ink);}
+  .btn-outline:hover{transform:translateY(-2px);background:var(--ink);color:var(--spark);}
+  .btn-light{background:var(--spark);color:var(--ink);}
+  .btn-light:hover{transform:translateY(-2px);background:var(--white);}
+
+  /* ---------- corner-tick signature element ---------- */
+  .tick-box{position:relative;}
+  .tick-box::before,.tick-box::after,
+  .tick-box .tk-br,.tick-box .tk-bl{
+    content:"";position:absolute;width:14px;height:14px;
+    border-color:var(--teal);opacity:0;transition:opacity .25s ease;
+  }
+  .tick-box::before{top:-1px;left:-1px;border-top:2px solid;border-left:2px solid;}
+  .tick-box::after{top:-1px;right:-1px;border-top:2px solid;border-right:2px solid;}
+  .tick-box .tk-br{bottom:-1px;right:-1px;border-bottom:2px solid var(--teal);border-right:2px solid var(--teal);}
+  .tick-box .tk-bl{bottom:-1px;left:-1px;border-bottom:2px solid var(--teal);border-left:2px solid var(--teal);}
+  .tick-box:hover::before,.tick-box:hover::after,
+  .tick-box:hover .tk-br,.tick-box:hover .tk-bl{opacity:1;}
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,253,252,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line-soft);
+  }
+  nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0;}
+  .logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px;letter-spacing:-0.02em;display:flex;align-items:center;gap:8px;}
+  .logo .dot{width:8px;height:8px;background:var(--spark);border:1.5px solid var(--ink);border-radius:1px;display:inline-block;}
+  .nav-links{display:flex;gap:36px;align-items:center;}
+  .nav-links a{font-size:14px;font-weight:500;color:var(--ink-soft);transition:color .15s;}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-cta{display:flex;align-items:center;gap:18px;}
+  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;}
+  .burger span{width:24px;height:2px;background:var(--ink);}
+
+  /* ---------- hero ---------- */
+  .hero{padding:88px 0 80px;position:relative;overflow:hidden;}
+  .hero-grid{
+    display:grid;grid-template-columns:1.1fr 0.9fr;gap:64px;align-items:center;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    color:var(--teal-dark);margin-bottom:22px;
+  }
+  .eyebrow::before{content:"";width:22px;height:1.5px;background:var(--teal-dark);}
+  .hero h1{font-size:56px;margin-bottom:22px;}
+  .hero h1 em{font-style:normal;color:var(--teal-dark);}
+  .hero p.lead{font-size:18px;color:var(--ink-soft);max-width:480px;margin-bottom:34px;}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:46px;}
+  .hero-stats{display:flex;gap:32px;flex-wrap:wrap;}
+  .hero-stats div{border-left:2px solid var(--line);padding-left:14px;}
+  .hero-stats strong{display:block;font-family:'Space Grotesk',sans-serif;font-size:15px;}
+  .hero-stats span{font-size:13px;color:var(--ink-soft);}
+
+  .blueprint{
+    position:relative;aspect-ratio:4/5;background:var(--ink);
+    border-radius:var(--radius);overflow:hidden;
+  }
+  .blueprint img{width:100%;height:100%;object-fit:cover;display:block;}
+  .blueprint .shine-overlay{
+    position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(15,36,32,0) 45%, rgba(15,36,32,0.55) 100%),
+               linear-gradient(120deg, rgba(223,255,61,0.14) 0%, rgba(223,255,61,0) 30%);
+    pointer-events:none;
+  }
+  .blueprint .caption{
+    position:absolute;left:20px;bottom:18px;color:var(--white);
+    font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
+    opacity:0.85;
+  }
+  .blueprint .spark-dot{
+    position:absolute;width:8px;height:8px;background:var(--spark);border-radius:50%;
+    box-shadow:0 0 12px 4px rgba(223,255,61,0.6);
+    animation:pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse{
+    0%,100%{opacity:0.5;transform:scale(0.9);}
+    50%{opacity:1;transform:scale(1.15);}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .blueprint .spark-dot{animation:none;}
+  }
+
+  /* ---------- section shell ---------- */
+  section{padding:96px 0;}
+  .section-head{max-width:640px;margin-bottom:56px;}
+  .section-head .mono{color:var(--teal-dark);margin-bottom:14px;display:block;}
+  .section-head h2{font-size:36px;}
+  .section-head p{color:var(--ink-soft);margin-top:14px;font-size:16px;}
+  .alt{background:var(--mist);}
+
+  /* ---------- services ---------- */
+  .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .service-card{background:var(--white);padding:32px 26px;position:relative;transition:background .2s;}
+  .service-card:hover{background:var(--paper);}
+  .service-num{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal-dark);margin-bottom:24px;display:block;}
+  .service-card h3{font-size:19px;margin-bottom:10px;}
+  .service-card p{font-size:14px;color:var(--ink-soft);}
+
+  /* ---------- why us ---------- */
+  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;}
+  .why-card{padding:26px 22px;background:var(--white);border:1px solid var(--line);position:relative;}
+  .why-icon{width:34px;height:34px;margin-bottom:18px;color:var(--teal-dark);}
+  .why-card h4{font-size:16px;margin-bottom:8px;}
+  .why-card p{font-size:13.5px;color:var(--ink-soft);}
+
+  /* ---------- process ---------- */
+  .process{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
+  .process::before{content:"";position:absolute;top:20px;left:0;right:0;height:1px;background:var(--line);z-index:0;}
+  .step{position:relative;padding-right:24px;}
+  .step-index{
+    width:40px;height:40px;border-radius:50%;background:var(--ink);color:var(--spark);
+    display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk';font-weight:600;
+    margin-bottom:22px;position:relative;z-index:1;
+  }
+  .step h4{font-size:16px;margin-bottom:8px;}
+  .step p{font-size:13.5px;color:var(--ink-soft);}
+
+  /* ---------- coverage ---------- */
+  .chip-row{display:flex;flex-wrap:wrap;gap:10px;}
+  .chip{
+    padding:9px 16px;border:1px solid var(--line);border-radius:20px;
+    font-size:13.5px;color:var(--ink-soft);background:var(--white);
+  }
+
+  /* ---------- testimonials ---------- */
+  .testi-marquee{overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(90deg,transparent,black 5%,black 95%,transparent);mask-image:linear-gradient(90deg,transparent,black 5%,black 95%,transparent);}
+  .testi-row{display:flex;gap:20px;width:max-content;padding:6px 0;}
+  .testi-row.row-1{animation:scrollLeft 68s linear infinite;margin-bottom:20px;}
+  .testi-row.row-2{animation:scrollRight 74s linear infinite;}
+  .testi-marquee:hover .testi-row{animation-play-state:paused;}
+  @keyframes scrollLeft{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  @keyframes scrollRight{from{transform:translateX(-50%);}to{transform:translateX(0);}}
+  .testi-card{background:var(--white);border:1px solid var(--line);padding:24px;position:relative;width:320px;flex:0 0 auto;}
+  .testi-card p.quote{font-size:14.5px;margin-bottom:18px;color:var(--ink);}
+  .testi-tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal-dark);background:var(--mist);padding:3px 8px;margin-bottom:14px;}
+  .testi-who strong{display:block;font-size:14px;}
+  .testi-who span{font-size:12.5px;color:var(--ink-soft);}
+  .placeholder-flag{
+    margin-top:36px;padding:14px 18px;background:var(--paper);border:1px dashed var(--line);
+    font-size:13px;color:var(--ink-soft);
+  }
+
+  /* ---------- CTA band ---------- */
+  .cta-band{background:var(--ink);color:var(--white);border-radius:var(--radius);padding:64px 56px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;}
+  .cta-band h2{color:var(--white);font-size:32px;max-width:460px;}
+  .cta-band p{color:rgba(251,253,252,0.7);margin-top:12px;font-size:15px;}
+  .cta-right{display:flex;flex-direction:column;gap:14px;align-items:flex-start;}
+  .cta-phone{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--spark);}
+
+  /* ---------- footer ---------- */
+  footer{padding:64px 0 32px;border-top:1px solid var(--line-soft);}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px;}
+  .foot-col h5{font-family:'Space Grotesk';font-size:14px;margin-bottom:16px;}
+  .foot-col a,.foot-col p{display:block;font-size:13.5px;color:var(--ink-soft);margin-bottom:10px;}
+  .foot-col a:hover{color:var(--ink);}
+  .social-row{display:flex;gap:12px;}
+  .social-row a{
+    width:38px;height:38px;border:1px solid var(--line);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;margin-bottom:0;
+    transition:background .18s ease, border-color .18s ease, transform .18s ease;
+  }
+  .social-row a:hover{background:var(--ink);border-color:var(--ink);transform:translateY(-2px);}
+  .social-row a:hover svg{stroke:var(--spark);fill:var(--spark);}
+  .social-row svg{width:17px;height:17px;transition:stroke .18s ease, fill .18s ease;}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--line-soft);font-size:12.5px;color:var(--ink-soft);flex-wrap:wrap;gap:12px;}
+
+  /* ---------- whatsapp float ---------- */
+  .wa-float{
+    position:fixed;bottom:24px;right:24px;z-index:60;
+    width:56px;height:56px;border-radius:50%;background:var(--spark);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 8px 24px rgba(15,36,32,0.25);
+    transition:transform .2s ease;
+  }
+  .wa-float:hover{transform:scale(1.08);}
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:980px){
+    .hero-grid{grid-template-columns:1fr;}
+    .blueprint{max-width:420px;margin:0 auto;}
+    .services-grid{grid-template-columns:repeat(2,1fr);}
+    .why-grid{grid-template-columns:repeat(2,1fr);}
+    .process{grid-template-columns:repeat(2,1fr);gap:32px;}
+    .process::before{display:none;}
+    .testi-marquee{-webkit-mask-image:none;mask-image:none;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+    .nav-links{display:none;}
+    .burger{display:flex;}
+    .cta-band{padding:44px 28px;}
+  }
+  @media (max-width:600px){
+    .hero h1{font-size:38px;}
+    .wrap{padding:0 20px;}
+    .services-grid{grid-template-columns:1fr;}
+    .why-grid{grid-template-columns:1fr;}
+    .process{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr;}
+    .cta-band h2{font-size:26px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important;scroll-behavior:auto !important;}
+    .reveal{opacity:1;transform:none;}
+  }
+  :focus-visible{outline:2px solid var(--teal-dark);outline-offset:2px;}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="#top" class="logo"><span class="dot"></span>SPARKHAUZ</a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#why">Why Us</a>
+      <a href="#coverage">Coverage</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-primary" id="waTop" href="#" target="_blank" rel="noopener">Get Free Quote</a>
+      <button class="burger" id="burgerBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div id="mobileMenu" style="display:none;flex-direction:column;padding:12px 32px 24px;gap:16px;border-top:1px solid var(--line-soft);">
+    <a href="#services">Services</a>
+    <a href="#why">Why Us</a>
+    <a href="#coverage">Coverage</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow mono">Lagos · Residential, Commercial &amp; Fumigation</span>
+        <h1>Cleaning,<br><em>precision-engineered.</em></h1>
+        <p class="lead">Sparkhauz delivers trained, vetted cleaning teams for homes, offices and estates across Lagos — plus fumigation and specialty cleaning when you need it. Book on WhatsApp in under a minute.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary wa-link" href="#" target="_blank" rel="noopener">Chat on WhatsApp →</a>
+          <a class="btn btn-outline" href="#services">See services</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>Same-day</strong><span>Quote response</span></div>
+          <div><strong>Vetted</strong><span>Trained cleaning staff</span></div>
+          <div><strong>Eco-safe</strong><span>Products &amp; fumigation</span></div>
+        </div>
+      </div>
+      <div class="blueprint tick-box reveal">
+        <span class="tk-br"></span><span class="tk-bl"></span>
+        <img src="https://images.unsplash.com/photo-1758448755856-01d3add0177b?fm=jpg&q=80&w=1400&auto=format&fit=crop" alt="A sparkling clean, sunlit modern living room" loading="eager">
+        <div class="shine-overlay"></div>
+        <span class="spark-dot" style="top:22%;left:70%;"></span>
+        <span class="spark-dot" style="top:38%;left:30%;animation-delay:0.8s;"></span>
+        <span class="spark-dot" style="top:60%;left:55%;animation-delay:1.4s;"></span>
+        <span class="caption">Sparkhauz · Lagos</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="mono">What we do</span>
+        <h2>Four services. One standard of clean.</h2>
+        <p>Whether it's a flat in Lekki or an office floor in Ikeja, every job runs on the same checklist and the same trained team structure.</p>
+      </div>
+      <div class="services-grid reveal">
+        <div class="service-card"><span class="service-num">01</span><h3>Residential Cleaning</h3><p>Routine and deep home cleaning — kitchens, bathrooms, living spaces, laundry and more, on a schedule that suits you.</p></div>
+        <div class="service-card"><span class="service-num">02</span><h3>Commercial &amp; Office</h3><p>Daily, weekly or contract janitorial service for offices, retail spaces and facilities, with dedicated supervision.</p></div>
+        <div class="service-card"><span class="service-num">03</span><h3>Fumigation &amp; Pest Control</h3><p>Eco-friendly fumigation, disinfection and pest control for homes, offices and warehouses.</p></div>
+        <div class="service-card"><span class="service-num">04</span><h3>Specialty Cleaning</h3><p>Move-in / move-out, post-construction cleanup, upholstery and carpet deep-cleaning for one-off jobs.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="why" class="alt">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="mono">Why Sparkhauz</span>
+        <h2>Built to be the reliable option.</h2>
+      </div>
+      <div class="why-grid reveal">
+        <div class="why-card tick-box">
+          <span class="tk-br"></span><span class="tk-bl"></span>
+          <h4>Vetted, trained cleaners</h4>
+          <p>Every cleaner is screened and trained before they step into your space.</p>
+        </div>
+        <div class="why-card tick-box">
+          <span class="tk-br"></span><span class="tk-bl"></span>
+          <h4>Eco-friendly products</h4>
+          <p>Safe for kids, pets and staff — no harsh residue left behind.</p>
+        </div>
+        <div class="why-card tick-box">
+          <span class="tk-br"></span><span class="tk-bl"></span>
+          <h4>Flexible scheduling</h4>
+          <p>One-off, weekly or monthly plans that adjust as your needs change.</p>
+        </div>
+        <div class="why-card tick-box">
+          <span class="tk-br"></span><span class="tk-bl"></span>
+          <h4>Transparent pricing</h4>
+          <p>Clear quotes before we start — no surprise charges after the job.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="mono">How it works</span>
+        <h2>From message to spotless, in four steps.</h2>
+      </div>
+      <div class="process reveal">
+        <div class="step"><div class="step-index">1</div><h4>Message us</h4><p>Reach out on WhatsApp with your location and what needs cleaning.</p></div>
+        <div class="step"><div class="step-index">2</div><h4>Get a free quote</h4><p>We confirm scope and give you a clear price — no obligation.</p></div>
+        <div class="step"><div class="step-index">3</div><h4>We schedule &amp; clean</h4><p>A trained team arrives on time and works through our checklist.</p></div>
+        <div class="step"><div class="step-index">4</div><h4>Inspection &amp; follow-up</h4><p>We walk the space with you and follow up to make sure you're happy.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COVERAGE -->
+  <section id="coverage" class="alt">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="mono">Coverage</span>
+        <h2>Serving homes and offices across all of Lagos State.</h2>
+        <p>We cover every local government area — message us with your location to confirm scheduling.</p>
+      </div>
+      <div class="chip-row reveal">
+        <span class="chip">Agege</span><span class="chip">Ajeromi-Ifelodun</span><span class="chip">Alimosho</span>
+        <span class="chip">Amuwo-Odofin</span><span class="chip">Apapa</span><span class="chip">Badagry</span>
+        <span class="chip">Epe</span><span class="chip">Eti-Osa</span><span class="chip">Ibeju-Lekki</span>
+        <span class="chip">Ifako-Ijaiye</span><span class="chip">Ikeja</span><span class="chip">Ikorodu</span>
+        <span class="chip">Kosofe</span><span class="chip">Lagos Island</span><span class="chip">Lagos Mainland</span>
+        <span class="chip">Mushin</span><span class="chip">Ojo</span><span class="chip">Oshodi-Isolo</span>
+        <span class="chip">Shomolu</span><span class="chip">Surulere</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="reviews">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="mono">Reviews</span>
+        <h2>What clients are saying.</h2>
+      </div>
+      <div class="testi-marquee reveal">
+        <div class="testi-row row-1" id="testiRow1"></div>
+        <div class="testi-row row-2" id="testiRow2"></div>
+      </div>
+      <div class="placeholder-flag reveal">Placeholder reviews — swap in real client quotes and names once you have a few jobs done.</div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="cta-band reveal">
+        <div>
+          <h2>Ready for a spotless space?</h2>
+          <p>Send your location and what needs cleaning — we'll reply with a free quote same day.</p>
+        </div>
+        <div class="cta-right">
+          <a class="btn btn-light wa-link" href="#" target="_blank" rel="noopener">Chat on WhatsApp →</a>
+          <span class="cta-phone">+234 816 790 7079</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <h5>SPARKHAUZ</h5>
+        <p style="max-width:260px;">Professional residential, commercial and fumigation cleaning across Lagos.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Company</h5>
+        <a href="#services">Services</a>
+        <a href="#why">Why Us</a>
+        <a href="#reviews">Reviews</a>
+      </div>
+      <div class="foot-col">
+        <h5>Contact</h5>
+        <p>hello.sparkhauz@gmail.com</p>
+        <p>+234 816 790 7079</p>
+        <p>Lagos, Nigeria</p>
+      </div>
+      <div class="foot-col">
+        <h5>Follow</h5>
+        <div class="social-row">
+          <a href="https://x.com/sparkhauz?s=11" target="_blank" rel="noopener" aria-label="Sparkhauz on X">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.6"><path d="M4 4l7.5 9.5L4.5 20h2l6-6.8L18 20h2l-8-10.2L19.5 4h-2l-5.5 6.2L7 4H4z" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://www.instagram.com/sparkhauz_?utm_source=qr" target="_blank" rel="noopener" aria-label="Sparkhauz on Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.6"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.9" fill="var(--ink)" stroke="none"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@sparkhauz?_r=1&_t=ZN-98UYPu0FU3S" target="_blank" rel="noopener" aria-label="Sparkhauz on TikTok">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.6"><path d="M14 4v9.6a3.2 3.2 0 1 1-2.4-3.1M14 4c.4 2.2 2 3.8 4.2 4.1V10.5C16.6 10.4 15.1 9.8 14 8.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://www.facebook.com/share/1GEhm8CvnN/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Sparkhauz on Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.6"><path d="M14.5 21v-7h2.4l.4-3H14.5V9.2c0-.9.2-1.5 1.6-1.5H17V5.1c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.3H8.5v3h2.3v7h3.7z" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Sparkhauz. All rights reserved.</span>
+      <span>Built with care in Lagos.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float wa-link" href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.06-1.33A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2Z" stroke="#0F2420" stroke-width="1.4"/><path d="M8.5 8.7c.2-.5.6-.5.9-.5h.6c.2 0 .5 0 .7.5.3.6.9 2 1 2.1.1.2.1.4 0 .6-.2.3-.3.4-.5.6-.2.2-.4.4-.2.7.4.7 1 1.4 1.7 2 .8.6 1.4.9 1.7 1 .3.1.4.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.7-.1.3.1 1.9.9 2.2 1 .3.2.5.2.6.4.1.2.1 1-.3 1.9-.4.9-2 1.7-2.8 1.8-.7.1-1.6.2-5.1-2.2C7.6 15.4 6 12.6 6 12.3c0-.3.9-1.4 1.2-1.9.3-.5.5-.6.7-.6h.6" fill="#0F2420"/></svg>
+</a>
+
+<script>
+  // Testimonials — placeholder content, swap for real client reviews
+  const TESTIMONIALS = [
+    { q: "The team was on time, thorough, and left our office spotless. Booking on WhatsApp made it effortless.", n: "Sample Client", r: "Office Manager, Lekki", t: "Commercial" },
+    { q: "Professional and careful with our things. Our go-to for move-in cleaning now.", n: "Sample Client", r: "Homeowner, Ikeja", t: "Specialty" },
+    { q: "Fumigation was odourless and fast. No pests since. Highly recommend.", n: "Sample Client", r: "Resident, Surulere", t: "Fumigation" },
+    { q: "They turned up exactly when they said they would. Rare for a service business in Lagos, honestly.", n: "Sample Client", r: "Homeowner, Yaba", t: "Residential" },
+    { q: "Our showroom floor hasn't looked this good since we opened. Weekly contract is worth every naira.", n: "Sample Client", r: "Retail Owner, Victoria Island", t: "Commercial" },
+    { q: "Post-construction cleanup was no joke — dust everywhere. They cleared it in one day.", n: "Sample Client", r: "Developer, Ajah", t: "Specialty" },
+    { q: "Booked a quote at 9am, cleaners were at my door by 2pm the same day.", n: "Sample Client", r: "Resident, Gbagada", t: "Residential" },
+    { q: "Pest control team explained everything before spraying. Kids and dog were safe the whole time.", n: "Sample Client", r: "Homeowner, Magodo", t: "Fumigation" },
+    { q: "Cleaned my entire office block over a weekend so we didn't lose a single work day.", n: "Sample Client", r: "Facility Manager, Ikeja", t: "Commercial" },
+    { q: "Moving out was stressful enough — at least the cleaning wasn't. Landlord released my deposit same week.", n: "Sample Client", r: "Tenant, Maryland", t: "Specialty" },
+    { q: "Every corner, every skirting board. They don't cut corners, literally.", n: "Sample Client", r: "Homeowner, Lekki Phase 1", t: "Residential" },
+    { q: "We switched from another vendor after one bad job. Sparkhauz has been consistent for three months now.", n: "Sample Client", r: "Business Owner, Apapa", t: "Commercial" },
+    { q: "Carpet looked new again after the deep clean. Didn't think that stain was coming out.", n: "Sample Client", r: "Resident, Surulere", t: "Specialty" },
+    { q: "Quoted a fair price upfront and stuck to it. No last-minute add-ons.", n: "Sample Client", r: "Homeowner, Ikorodu", t: "Residential" },
+    { q: "Rats gone within a week of fumigation. Wish I'd called them sooner.", n: "Sample Client", r: "Resident, Alimosho", t: "Fumigation" },
+    { q: "Our estate manager now books them for all common areas. Neighbours keep asking who we use.", n: "Sample Client", r: "Resident, Banana Island", t: "Commercial" },
+    { q: "Friendly team, thorough work, and they left the kitchen smelling fresh not chemical-y.", n: "Sample Client", r: "Homeowner, Gbagada", t: "Residential" },
+    { q: "Handled our warehouse fumigation without disrupting operations. Coordinated it around our shift hours.", n: "Sample Client", r: "Operations Lead, Amuwo-Odofin", t: "Fumigation" },
+    { q: "Second time using them for move-in cleaning on two different properties. Consistent both times.", n: "Sample Client", r: "Landlord, Yaba", t: "Specialty" },
+    { q: "WhatsApp booking is genuinely the easiest part of my week. Reply is fast, no back and forth.", n: "Sample Client", r: "Homeowner, Ikeja", t: "Residential" }
+  ];
+
+  function testiCard(item){
+    return `<div class="testi-card"><span class="testi-tag">${item.t}</span><p class="quote">"${item.q}"</p><div class="testi-who"><strong>${item.n}</strong><span>${item.r}</span></div></div>`;
+  }
+
+  const half = Math.ceil(TESTIMONIALS.length / 2);
+  const rowAData = TESTIMONIALS.slice(0, half);
+  const rowBData = TESTIMONIALS.slice(half);
+  const row1 = document.getElementById('testiRow1');
+  const row2 = document.getElementById('testiRow2');
+  // duplicate each row's content once so the CSS animation (translateX -50%) loops seamlessly
+  row1.innerHTML = rowAData.map(testiCard).join('') + rowAData.map(testiCard).join('');
+  row2.innerHTML = rowBData.map(testiCard).join('') + rowBData.map(testiCard).join('');
+
+  // Mobile menu
+  const burger = document.getElementById('burgerBtn');
+  const menu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => {
+    menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.style.display = 'none'));
+
+  // WhatsApp link builder — replace phone number below with the real Sparkhauz WhatsApp number
+  const waHref = "https://wa.me/message/5PCJUNWBGWJVE1";
+  document.querySelectorAll('.wa-link, #waTop').forEach(el => el.setAttribute('href', waHref));
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
