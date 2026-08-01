@@ -161,6 +161,13 @@
   .service-num{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal-dark);margin-bottom:24px;display:block;}
   .service-card h3{font-size:19px;margin-bottom:10px;}
   .service-card p{font-size:14px;color:var(--ink-soft);}
+  .service-thumb{
+    position:absolute;top:20px;right:20px;width:56px;height:56px;border-radius:2px;
+    overflow:hidden;border:2px solid var(--white);box-shadow:0 4px 14px rgba(15,36,32,0.18);
+    transform:rotate(3deg);transition:transform .2s ease;
+  }
+  .service-card:hover .service-thumb{transform:rotate(0deg) scale(1.06);}
+  .service-thumb img{width:100%;height:100%;object-fit:cover;}
 
   /* ---------- why us ---------- */
   .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;}
@@ -206,8 +213,42 @@
     font-size:13px;color:var(--ink-soft);
   }
 
-  /* ---------- CTA band ---------- */
-  .cta-band{background:var(--ink);color:var(--white);border-radius:var(--radius);padding:64px 56px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;}
+  /* ---------- results banner (full-bleed photo section) ---------- */
+  .results-banner{
+    position:relative;min-height:420px;display:flex;align-items:flex-end;
+    background-size:cover;background-position:center;overflow:hidden;
+  }
+  .results-banner::before{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(0deg, rgba(15,36,32,0.88) 0%, rgba(15,36,32,0.35) 55%, rgba(15,36,32,0.15) 100%);
+  }
+  .results-inner{position:relative;z-index:1;padding:48px 0;color:var(--white);}
+  .results-inner .mono{color:var(--spark);margin-bottom:12px;display:block;}
+  .results-inner h2{color:var(--white);font-size:34px;max-width:560px;}
+  .results-inner p{color:rgba(251,253,252,0.75);margin-top:12px;max-width:480px;font-size:15px;}
+
+  /* ---------- layered photo strip ---------- */
+  .photo-strip{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .photo-layer{position:relative;aspect-ratio:3/4;border-radius:var(--radius);overflow:hidden;}
+  .photo-layer img{width:100%;height:100%;object-fit:cover;}
+  .photo-layer .layer-tag{
+    position:absolute;bottom:16px;left:16px;background:var(--white);
+    padding:8px 14px;font-family:'Space Grotesk';font-weight:600;font-size:13px;color:var(--ink);
+    display:flex;align-items:center;gap:8px;
+  }
+  .photo-layer .layer-tag .dot{width:6px;height:6px;background:var(--teal);border-radius:50%;}
+  .photo-layer:nth-child(2){margin-top:36px;}
+  @media (max-width:700px){
+    .photo-strip{grid-template-columns:1fr;}
+    .photo-layer:nth-child(2){margin-top:0;}
+    .results-inner h2{font-size:26px;}
+  }
+  .cta-band{
+    position:relative;color:var(--white);border-radius:var(--radius);padding:64px 56px;
+    display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;
+    background-image:linear-gradient(100deg, rgba(15,36,32,0.94) 30%, rgba(15,36,32,0.55) 100%), url('images/luxury-modern.jpg');
+    background-size:cover;background-position:center;overflow:hidden;
+  }
   .cta-band h2{color:var(--white);font-size:32px;max-width:460px;}
   .cta-band p{color:rgba(251,253,252,0.7);margin-top:12px;font-size:15px;}
   .cta-right{display:flex;flex-direction:column;gap:14px;align-items:flex-start;}
@@ -321,7 +362,7 @@
       </div>
       <div class="blueprint tick-box reveal">
         <span class="tk-br"></span><span class="tk-bl"></span>
-        <img src="https://images.unsplash.com/photo-1758448755856-01d3add0177b?fm=jpg&q=80&w=1400&auto=format&fit=crop" alt="A sparkling clean, sunlit modern living room" loading="eager">
+        <img src="images/team.jpg" alt="The Sparkhauz cleaning team" loading="eager">
         <div class="shine-overlay"></div>
         <span class="spark-dot" style="top:22%;left:70%;"></span>
         <span class="spark-dot" style="top:38%;left:30%;animation-delay:0.8s;"></span>
@@ -341,10 +382,19 @@
       </div>
       <div class="services-grid reveal">
         <div class="service-card"><span class="service-num">01</span><h3>Residential Cleaning</h3><p>Routine and deep home cleaning — kitchens, bathrooms, living spaces, laundry and more, on a schedule that suits you.</p></div>
-        <div class="service-card"><span class="service-num">02</span><h3>Commercial &amp; Office</h3><p>Daily, weekly or contract janitorial service for offices, retail spaces and facilities, with dedicated supervision.</p></div>
+        <div class="service-card"><span class="service-num">02</span><div class="service-thumb"><img src="images/window.jpg" alt="Sparkhauz cleaner wiping a glass window"></div><h3>Commercial &amp; Office</h3><p>Daily, weekly or contract janitorial service for offices, retail spaces and facilities, with dedicated supervision.</p></div>
         <div class="service-card"><span class="service-num">03</span><h3>Fumigation &amp; Pest Control</h3><p>Eco-friendly fumigation, disinfection and pest control for homes, offices and warehouses.</p></div>
         <div class="service-card"><span class="service-num">04</span><h3>Specialty Cleaning</h3><p>Move-in / move-out, post-construction cleanup, upholstery and carpet deep-cleaning for one-off jobs.</p></div>
       </div>
+    </div>
+  </section>
+
+  <!-- RESULTS BANNER -->
+  <section class="results-banner" style="background-image:url('images/luxury-gold.jpg');">
+    <div class="wrap results-inner">
+      <span class="mono">The result</span>
+      <h2>This is what "clean" looks like when Sparkhauz is done.</h2>
+      <p>Every job is finished to the same standard — whether it's a one-bedroom flat or a full estate living room.</p>
     </div>
   </section>
 
@@ -375,6 +425,18 @@
           <span class="tk-br"></span><span class="tk-bl"></span>
           <h4>Transparent pricing</h4>
           <p>Clear quotes before we start — no surprise charges after the job.</p>
+        </div>
+      </div>
+      <div class="photo-strip reveal" style="margin-top:56px;">
+        <div class="photo-layer tick-box">
+          <span class="tk-br"></span><span class="tk-bl"></span>
+          <img src="images/vacuum.jpg" alt="Sparkhauz cleaner vacuuming a living room rug">
+          <span class="layer-tag"><span class="dot"></span>Residential</span>
+        </div>
+        <div class="photo-layer tick-box">
+          <span class="tk-br"></span><span class="tk-bl"></span>
+          <img src="images/mirror.jpg" alt="Sparkhauz cleaner wiping down a bathroom mirror">
+          <span class="layer-tag"><span class="dot"></span>Detail work</span>
         </div>
       </div>
     </div>
